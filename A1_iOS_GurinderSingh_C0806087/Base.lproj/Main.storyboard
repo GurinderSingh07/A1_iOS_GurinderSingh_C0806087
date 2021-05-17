@@ -1,24 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="A1_iOS_GurinderSingh_C0806087" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lQe-5k-TCh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Ontario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2X-Yn-euh">
+                                        <rect key="frame" x="138" y="46.5" width="138" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5k-gS-pb4">
+                                        <rect key="frame" x="354" y="41.5" width="50" height="31"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                        <state key="normal" title="Change">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tapChangeOverlay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NBE-it-NV0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.2722013593" green="0.36148479579999998" blue="0.4198318124" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="R5k-gS-pb4" firstAttribute="top" secondItem="G2X-Yn-euh" secondAttribute="top" constant="-5" id="2DB-Tc-7Ww"/>
+                                    <constraint firstAttribute="bottom" secondItem="G2X-Yn-euh" secondAttribute="bottom" constant="15" id="B0I-qI-lGf"/>
+                                    <constraint firstItem="G2X-Yn-euh" firstAttribute="centerX" secondItem="lQe-5k-TCh" secondAttribute="centerX" id="pi9-xV-P4X"/>
+                                    <constraint firstAttribute="trailing" secondItem="R5k-gS-pb4" secondAttribute="trailing" constant="10" id="rga-Su-ohW"/>
+                                    <constraint firstAttribute="height" constant="80" id="uwp-pk-niA"/>
+                                </constraints>
+                            </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mMG-cP-O0H">
+                                <rect key="frame" x="0.0" y="77" width="414" height="735"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="lrY-PK-3yv"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ubw-5O-s8l">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <color key="backgroundColor" red="0.2722013593" green="0.36148479579999998" blue="0.4198318124" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="NUo-a4-hyV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                <state key="normal" title="Route Guidance">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapRouteGuidance:" destination="BYZ-38-t0r" eventType="touchUpInside" id="00m-L6-VH9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lQe-5k-TCh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="KU1-4T-5Yb"/>
+                            <constraint firstItem="mMG-cP-O0H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LH1-ZA-ybk"/>
+                            <constraint firstItem="Ubw-5O-s8l" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Pvj-H8-q4Z"/>
+                            <constraint firstItem="Ubw-5O-s8l" firstAttribute="top" secondItem="mMG-cP-O0H" secondAttribute="bottom" id="Qxy-rL-Vbw"/>
+                            <constraint firstItem="mMG-cP-O0H" firstAttribute="top" secondItem="lQe-5k-TCh" secondAttribute="bottom" constant="-3" id="SPG-LW-PNb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ubw-5O-s8l" secondAttribute="trailing" id="h74-dg-Rq5"/>
+                            <constraint firstItem="Ubw-5O-s8l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hsS-2o-1Cl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lQe-5k-TCh" secondAttribute="trailing" id="jEM-Qp-Dva"/>
+                            <constraint firstAttribute="trailing" secondItem="mMG-cP-O0H" secondAttribute="trailing" id="kaw-Ip-ibG"/>
+                            <constraint firstItem="lQe-5k-TCh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nUm-dB-9Uj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="map" destination="mMG-cP-O0H" id="3xh-Cj-doy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="113.83928571428571"/>
         </scene>
     </scenes>
 </document>
